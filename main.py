@@ -73,13 +73,6 @@ def sendMail():
         time.sleep(120)
 
 def insta():
-  key = 'c59267d98c1002f'
-  path = 's2.png'
-  im = pyimgur.Imgur(key)
-  uploaded_image = im.upload_image(path)
-  url = uploaded_image.link
-  print(f"Image link - {url}")
-
   toke = 'EAANysd4LZCIkBABy0BEEjE4wZBFyolpulYyhiUztxd98NtjUsLFdZBzFEY8faLn9U1mLdCtOoEHZBWi7aPQM8ZARDmx8FGzDl7CfmrEyUORjOgy1lFNSncbkj3OvCS0WgSr5Oi4ZBKLRLtNMAGdHQFYRrPGUjZCvd9XYVzgMKg2Dflyllj9pbX4'
   while True:
       while True:
@@ -89,6 +82,13 @@ def insta():
               break
           time.sleep(1)
       try:
+        key = 'c59267d98c1002f'
+        path = 's2.png'
+        im = pyimgur.Imgur(key)
+        uploaded_image = im.upload_image(path)
+        url = uploaded_image.link
+        print(f"Image link - {url}")
+        
         year = functions.getYear()
         montho = functions.getMonth()
         dato = functions.getDate()
@@ -106,6 +106,13 @@ def insta():
         print(f"posted to insta with id {idPost}")
 
       except:
+        key = 'c59267d98c1002f'
+        path = 's2.png'
+        im = pyimgur.Imgur(key)
+        uploaded_image = im.upload_image(path)
+        url = uploaded_image.link
+        print(f"Image link - {url}")
+        
         year = functions.getYear()
         montho = functions.getMonth()
         dato = functions.getDate()
