@@ -73,7 +73,7 @@ def sendMail():
         time.sleep(120)
 
 def insta():
-  toke = 'EAANysd4LZCIkBABy0BEEjE4wZBFyolpulYyhiUztxd98NtjUsLFdZBzFEY8faLn9U1mLdCtOoEHZBWi7aPQM8ZARDmx8FGzDl7CfmrEyUORjOgy1lFNSncbkj3OvCS0WgSr5Oi4ZBKLRLtNMAGdHQFYRrPGUjZCvd9XYVzgMKg2Dflyllj9pbX4'
+  toke = TOKEN
   while True:
       while True:
           now = datetime.now()
