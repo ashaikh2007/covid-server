@@ -73,7 +73,7 @@ def sendMail():
         time.sleep(120)
 
 def insta():
-  toke = TOKEN
+  toke1 = TOKEN
   while True:
       while True:
           now = datetime.now()
@@ -82,6 +82,9 @@ def insta():
               break
           time.sleep(1)
       try:
+        tempToke = json.loads(requests.get('https://graph.facebook.com/oauth/access_token?client_id=970533190237321&client_secret=a171eadfaae8bbfea6cb1e057a3e7537&grant_type=fb_exchange_token&fb_exchange_token='+toke1))
+        toke2 = tempToke['access_token']
+        
         key = 'c59267d98c1002f'
         path = 's2.png'
         im = pyimgur.Imgur(key)
@@ -95,40 +98,46 @@ def insta():
         dato = functions.getDate()
         cap = montho+' '+dato+', '+year
 
-        getContainer = requests.post(f"https://graph.facebook.com/17841451306738097/media?image_url={url}&caption={cap}&access_token={toke}")
+        getContainer = requests.post(f"https://graph.facebook.com/17841451306738097/media?image_url={url}&caption={cap}&access_token={toke2}")
         idFind = getContainer.content.decode()
         idJson = json.loads(idFind)
         id_ = idJson['id']
         print(f'creation id - {id_}')
         time.sleep(2)
 
-        postImage = requests.post(f"https://graph.facebook.com/17841451306738097/media_publish?creation_id={id_}&access_token={toke}")
+        postImage = requests.post(f"https://graph.facebook.com/17841451306738097/media_publish?creation_id={id_}&access_token={toke2}")
         idPost = postImage.content.decode()
         print(f"posted to insta with id {idPost}")
+        toke1 = toke2
 
       except:
+        tempToke = json.loads(requests.get('https://graph.facebook.com/oauth/access_token?client_id=970533190237321&client_secret=a171eadfaae8bbfea6cb1e057a3e7537&grant_type=fb_exchange_token&fb_exchange_token='+toke1))
+        toke2 = tempToke['access_token']
+        
         key = 'c59267d98c1002f'
         path = 's2.png'
         im = pyimgur.Imgur(key)
         uploaded_image = im.upload_image(path)
         url = uploaded_image.link
         print(f"Image link - {url}")
+        time.sleep(10)
         
         year = functions.getYear()
         montho = functions.getMonth()
         dato = functions.getDate()
         cap = montho+' '+dato+', '+year
 
-        getContainer = requests.post(f"https://graph.facebook.com/17841451306738097/media?image_url={url}&caption={cap}&access_token={toke}")
+        getContainer = requests.post(f"https://graph.facebook.com/17841451306738097/media?image_url={url}&caption={cap}&access_token={toke2}")
         idFind = getContainer.content.decode()
         idJson = json.loads(idFind)
         id_ = idJson['id']
         print(f'creation id - {id_}')
         time.sleep(2)
 
-        postImage = requests.post(f"https://graph.facebook.com/17841451306738097/media_publish?creation_id={id_}&access_token={toke}")
+        postImage = requests.post(f"https://graph.facebook.com/17841451306738097/media_publish?creation_id={id_}&access_token={toke2}")
         idPost = postImage.content.decode()
-        print(f"posted to insta with id {idPost}") 
+        print(f"posted to insta with id {idPost}")
+        toke1 = toke2
       
       time.sleep(120)
 
