@@ -4,7 +4,7 @@ from waitress import serve
 import os, functions, time, threading, requests, json, pyimgur
 
 os.environ['TZ'] = 'UTC+5'
-#time.tzset()
+time.tzset()
 now = datetime.now()
 time_ = now.strftime("%H:%M")
 print(time_)
@@ -63,8 +63,8 @@ def sendMail():
                 break
             time.sleep(1)
         try:
-          #functions.mail("almujtabadika@gmail.com")
-          #functions.mail("hasanjalal@gmail.com")
+          functions.mail("almujtabadika@gmail.com")
+          functions.mail("hasanjalal@gmail.com")
           functions.mail('ashaikh3008@gmail.com')
         except:
           functions.mail("almujtabadika@gmail.com")
@@ -88,6 +88,7 @@ def insta():
         uploaded_image = im.upload_image(path)
         url = uploaded_image.link
         print(f"Image link - {url}")
+        time.sleep(10)
         
         year = functions.getYear()
         montho = functions.getMonth()
@@ -136,4 +137,4 @@ threading.Thread(target=imageRefresh).start()
 threading.Thread(target=sendMail).start()
 threading.Thread(target=insta).start()
 
-serve(app, host='0.0.0.0', port=80)
+serve(app, host='0.0.0.0', port=5000)
