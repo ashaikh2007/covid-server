@@ -161,4 +161,4 @@ def webGrab(): #update index.html every minute
     with open('index2.html', 'w') as file2:
         file2.write('')
         file2.write(rrr)
-    #print('index created at ' + timo + ' ' + montho + ' ' + dato + ', ' + year)
+    print('index created at ' + timo + ' ' + montho + ' ' + dato + ', ' + year)
