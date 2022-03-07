@@ -82,8 +82,10 @@ def insta():
               break
           time.sleep(1)
       try:
-        tempToke = json.loads(requests.get('https://graph.facebook.com/oauth/access_token?client_id=970533190237321&client_secret=a171eadfaae8bbfea6cb1e057a3e7537&grant_type=fb_exchange_token&fb_exchange_token='+toke1))
-        toke2 = tempToke['access_token']
+        tempToke = requests.get('https://graph.facebook.com/oauth/access_token?client_id=970533190237321&client_secret=a171eadfaae8bbfea6cb1e057a3e7537&grant_type=fb_exchange_token&fb_exchange_token='+toke1)
+        tempToke1 = tempToke.content.decode()
+        tempToke2 = json.loads(tempToke1)
+        toke2 = tempToke2['access_token']
         
         key = 'c59267d98c1002f'
         path = 's2.png'
@@ -111,8 +113,10 @@ def insta():
         toke1 = toke2
 
       except:
-        tempToke = json.loads(requests.get('https://graph.facebook.com/oauth/access_token?client_id=970533190237321&client_secret=a171eadfaae8bbfea6cb1e057a3e7537&grant_type=fb_exchange_token&fb_exchange_token='+toke1))
-        toke2 = tempToke['access_token']
+        tempToke = requests.get('https://graph.facebook.com/oauth/access_token?client_id=970533190237321&client_secret=a171eadfaae8bbfea6cb1e057a3e7537&grant_type=fb_exchange_token&fb_exchange_token='+toke1)
+        tempToke1 = tempToke.content.decode()
+        tempToke2 = json.loads(tempToke1)
+        toke2 = tempToke2['access_token']
         
         key = 'c59267d98c1002f'
         path = 's2.png'
