@@ -150,4 +150,4 @@ threading.Thread(target=imageRefresh).start()
 threading.Thread(target=sendMail).start()
 threading.Thread(target=insta).start()
 
-serve(app, host='0.0.0.0', port=5000)
+serve(app, host='0.0.0.0', port=80)
